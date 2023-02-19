@@ -1,0 +1,15 @@
+{
+  "name": "redux_reactjs",
+  "version": "1.0.0",
+  "description": "Redux is a predictable state container for js apps\r Redux is a library for js apps\r Redux will help manage state in react apps\r Redux provides bindings to use React and Redux together in an apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "redux": "^4.2.1"
+  }
+}
