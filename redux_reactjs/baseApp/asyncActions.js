@@ -1,11 +1,9 @@
-const redux = require('redux')
-const createStore = redux.createStore
-// middle ware
-const applyMiddleware = redux.applyMiddleware
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk'
+import axios from 'axios';
+
 // thunk
-const thunkMiddleware = require('redux-thunk').default
-// axios
-const axios = require('axios')
+const thunkMiddleware = thunk.default
 
 // state
 const initialState = {

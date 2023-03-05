@@ -1,7 +1,10 @@
-// import redux from 'redux'
+import { createStore, combineReducers } from 'redux';
+/*
+require 이용시 해당 코드로 import 대체 
 const redux = require('redux')
 const createStore = redux.createStore
 const combineReducers = redux.combineReducers
+*/
 
 const BUY_CAKE = 'BUY_CAKE'
 const BUY_ICECREAM = 'BUY_ICECREAM'

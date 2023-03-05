@@ -12,3 +12,6 @@ Redux provides bindings to use React and Redux together in an apps
 # Install
 npm remove redux react-redux
 npm install redux@4.1.2 react-redux
+
+# Run
+node baseApp/index
