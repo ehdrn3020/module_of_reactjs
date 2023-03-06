@@ -10,21 +10,23 @@ function todoApp(state = initialState, action) {
         case ADD_TODO:
             return {
                 ...state,
-                todos: {
+                todos: [...state.todos, {
                     text: action.text,
                     completed: false
-                }
+                }]
             }
         case COMPLETE_TODO:
-            return Object.assign({}, state, {
+            return {
+                ...state,
                 todos: [
                 ...state.todos.slice(0, action.index),
-                Object.assign({}, state.todos[action.index], {
+                {
+                    text: state.todos[action.index].text, 
                     completed: true
-                }),
+                },
                 ...state.todos.slice(action.index + 1)
                 ]
-            });
+            };
         case SET_VISIBILITY_FILTER:
             return { 
                 ...state, 
