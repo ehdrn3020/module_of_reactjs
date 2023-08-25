@@ -8,31 +8,29 @@ const ExpenseForm = () => {
         enteredDate: ''
     });
 
-    const titleCangeHandler = (event) => {
-        setUserInput({
-            ...userInput, // spread 연산자 사용
-            enteredTitle: event.target.value
-        })
+    const titleChangeHandler = (event) => {
+        setUserInput((prevState) => {
+            return {...prevState, enteredAmount: event.target.value}
+        });
+    }
+    const amountChangeHandler = (event) => {
+        setUserInput((prevState) => {
+            return {...prevState, enteredTitle: event.target.value}
+        });
     };
-    const amountCangeHandler = (event) => {
-        setUserInput({
-            ...userInput, // spread 연산자 사용
-            enteredAmount: event.target.value
-        })
+    const dateChangeHandler = (event) => {
+        setUserInput((prevState) => {
+            return {...prevState, enteredDate: event.target.value}
+        });
     };
-    const dateCangeHandler = (event) => {
-        setUserInput({
-            ...userInput, // spread 연산자 사용
-            enteredDate: event.target.value
-        })
-    };
+
 
     return (
         <form>
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label>타이틀</label>
-                    <input type="text" onChange={titleCangeHandler} />
+                    <input type="text" onChange={titleChangeHandler} />
                 </div>
                 <div className="new-expense__control">
                     <label>비용</label>
@@ -40,7 +38,7 @@ const ExpenseForm = () => {
                         type="number"
                         min="0.01"
                         step="0.01"
-                        onChange={amountCangeHandler}
+                        onChange={amountChangeHandler}
                     />
                 </div>
                 <div className="new-expense__control">
@@ -49,7 +47,7 @@ const ExpenseForm = () => {
                         type="date"
                         min="2023-01-01"
                         max="2023-12-31"
-                        onChange={dateCangeHandler}
+                        onChange={dateChangeHandler}
                     />
                 </div>
             </div>
