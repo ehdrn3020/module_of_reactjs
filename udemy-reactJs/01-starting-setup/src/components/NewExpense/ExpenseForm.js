@@ -16,22 +16,28 @@ const ExpenseForm = () => {
         setEnteredDate(event.target.value);
     };
 
-    const inputChangeHandler = (identifier, value) => {
-        if (identifier === 'title') {
-            setEnteredTitle(value);
-        } else if (identifier === 'amount') {
-            setEnteredTitle(value);
-        } else {
-            setEnteredDate(value);
-        }
+    const submitHandler = (event) => {
+        event.preventDefault(); // submit시 로딩을 막는다
+        const expenseData = {
+            title: enteredTitle,
+            amount: enteredAmount,
+            date: new Date(enteredDate),
+        };
+        console.log(expenseData); // submit action
+        setEnteredTitle('');
+        setEnteredAmount('');
+        setEnteredDate('');
     };
-
     return (
-        <form>
+        <form onSubmit={submitHandler}>
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label>타이틀</label>
-                    <input type="text" onChange={(event)=>{ inputChangeHandler('title', event.target.value) }} />
+                    <input
+                        type="text"
+                        value={enteredTitle}
+                        onChange={titleChangeHandler}
+                    />
                 </div>
                 <div className="new-expense__control">
                     <label>비용</label>
@@ -39,7 +45,8 @@ const ExpenseForm = () => {
                         type="number"
                         min="0.01"
                         step="0.01"
-                        onChange={(event)=>{ inputChangeHandler('amount', event.target.value) }}
+                        value={enteredAmount}
+                        onChange={amountChangeHandler}
                     />
                 </div>
                 <div className="new-expense__control">
@@ -48,7 +55,8 @@ const ExpenseForm = () => {
                         type="date"
                         min="2023-01-01"
                         max="2023-12-31"
-                        onChange={(event)=>{ inputChangeHandler('date', event.target.value) }}
+                        value={enteredDate}
+                        onChange={dateChangeHandler}
                     />
                 </div>
             </div>
