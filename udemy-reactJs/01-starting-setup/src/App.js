@@ -4,10 +4,10 @@ import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
 const dummy_items = [
-    { date: new Date(2023, 7, 15), title: "차량 수리비", amount: 230000 },
-    { date: new Date(2023, 7, 11), title: "영화관", amount: 20000 },
-    { date: new Date(2023, 7, 5), title: "점심 값", amount: 15000 },
-    { date: new Date(2023, 6, 30), title: "차량 유류비", amount: 95000 },
+    { id: 'e1', date: new Date(2023, 7, 15), title: "차량 수리비", amount: 230000 },
+    { id: 'e2', date: new Date(2023, 7, 11), title: "영화관", amount: 20000 },
+    { id: 'e3', date: new Date(2023, 7, 5), title: "점심 값", amount: 15000 },
+    { id: 'e4', date: new Date(2022, 6, 30), title: "차량 유류비", amount: 95000 },
 ];
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
     return (
         <div>
             <NewExpense onAddExpense={addExpenseHandler} />
-            <Expenses expense={expenses} />
+            <Expenses expenses={expenses} />
         </div>
     );
 }
