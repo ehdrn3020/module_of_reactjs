@@ -10,22 +10,30 @@ function Expenses(props) {
     setFilteredYear(selectedYear);
   };
 
-  const filteredExpenses = props.expenses.filter(expense => {
+  const filteredExpenses = props.expenses.filter((expense) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
+
+  let expensesListText = <p className="list-text">표시할 내용이 없습니다.</p>;
+  if (filteredExpenses.length > 0) {
+    expensesListText = filteredExpenses.map((item) => (
+      <ExpenseItem
+        key={item.id}
+        date={item.date}
+        title={item.title}
+        amount={item.amount}
+      />
+    ));
+  }
 
   return (
     <div>
       <Card className="expenses">
-        <ExpenseFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
-        {filteredExpenses.map((item) => (
-          <ExpenseItem
-            key={item.id}
-            date={item.date}
-            title={item.title}
-            amount={item.amount}
-          />
-        ))}
+        <ExpenseFilter
+          selected={filteredYear}
+          onChangeFilter={filterChangeHandler}
+        />
+        {expensesListText}
       </Card>
     </div>
   );

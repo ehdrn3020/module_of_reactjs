@@ -5,3 +5,8 @@
     width: 50rem;
     max-width: 95%;
   }
+.list-text {
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
